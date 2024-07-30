@@ -1,6 +1,6 @@
 // this the AppHeader component
 
-const AppHeader = () => {
+const AppMain = () => {
     return (
         <div className="main-div">
             <p>This is the App-header</p>
@@ -26,4 +26,4 @@ const ViewInfo = () => {
     );
 }
 
-export default AppHeader;
+export default AppMain;
