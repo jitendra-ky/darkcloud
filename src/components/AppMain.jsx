@@ -32,11 +32,14 @@ const ViewInfo = () => {
              </div>
 
              <div className="weather-info">
-                <div className="weather-type">Snow</div>
+                <div className="weather-type">
+                    <img src="" alt="weather-img" />
+                    <p>Snow</p>
+                </div>
                 <div className="weather-temp" >
                     <div className="temperature">
                         <p id="temp">8</p>
-                        <p>C | F</p>
+                        <p id="celcius">C | F</p>
                     </div>
                     <div id="temp-info"> 7 | 2</div>
                 </div>

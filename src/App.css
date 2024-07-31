@@ -78,20 +78,20 @@ main {
 input{
   width: 80%;
   padding: 8px;
-  border-radius: 5px;
+  border-radius: 5px 0 0 5px;
   border: 2px solid rgb(224, 222, 222);
-  position: relative;
+ 
   outline: none;
   
 }
  .search-button{
   
+  width: 7%;
   padding: 8px;
-  border-radius: 9px;
+  border-radius: 0 5px 5px 0;
   border: 2px solid rgb(224, 222, 222);
   cursor: pointer;
-  position: absolute;
-  right: 26rem;
+   
    
  }
 
@@ -130,8 +130,11 @@ input{
   height: 100%;
   width: 50%;
    display: flex;
+   flex-direction: column;
+   gap: 4rem;
    justify-content: center;
    align-items: center;
+    
 }
 
 .weather-temp{
@@ -145,11 +148,15 @@ input{
 
 .temperature{
   display: flex;
- gap: 16px;
+ gap: 20px;
 }
 
 #temp{
   font-size: 3rem;
+}
+
+#celcius{
+  color: blue;
 }
 
 #temp-info{
