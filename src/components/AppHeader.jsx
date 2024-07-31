@@ -7,7 +7,7 @@ const AppHeader = () => {
 
     return (
         <div className='nav-bar'>
-            <h1>Weather App</h1>
+            <h1>Dark-Cloud</h1>
         </div>
     );
 };

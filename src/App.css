@@ -27,7 +27,7 @@ body {
 
 
 .App-header {
-  
+
   height: 50px;
   display: flex;
   justify-content: center;
@@ -35,7 +35,7 @@ body {
 }
 
 .nav-bar {
- 
+
   height: 80%;
   width: 90%;
   display: flex;
@@ -43,59 +43,72 @@ body {
   align-items: center;
 }
 
- 
+
 main {
   background-color: rgb(209, 226, 255);
   padding: 10px;
   flex-grow: 1;
-  display: flex;
-  justify-content: center;
 }
 
 .main-div {
   height: 100%;
-  width: 50%;
+  max-width: 800px;
   display: flex;
   align-items: center;
   flex-direction: column;
   background-color: #fcf9f9;
   border-radius: 8px;
+  margin: auto;
 }
 
- 
 
-.select-area{
 
-  width: 100%;
-  margin-top: 10px;
-  padding: 10px;
+.select-area {
+
+  width: 90%;
+  margin: 10px;
+  /* padding: 10px; */
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  
+  border: thin solid rgb(170, 159, 138);
+  border-radius: 5px;
+  overflow: hidden;
+
 }
 
-input{
+input {
   width: 80%;
   padding: 8px;
   border-radius: 5px 0 0 5px;
-  border: 2px solid rgb(224, 222, 222);
- 
-  outline: none;
-  
-}
- .search-button{
-  
-  width: 7%;
-  padding: 8px;
-  border-radius: 0 5px 5px 0;
-  border: 2px solid rgb(224, 222, 222);
-  cursor: pointer;
-   
-   
- }
+  border: none;
 
-.view-info{
+  outline: none;
+  flex-grow: 1;
+  font-size: large;
+
+}
+
+
+.search-button {
+
+  width: 50px;
+  padding: 8px;
+  /* background-color: #81c2f8; */
+  border: none;
+  cursor: pointer;
+}
+.search-button:hover {
+  background-color: #757070;
+}
+
+.search-button>svg {
+  color: black;
+  font-size: 20px;
+}
+
+
+.view-info {
   width: 100%;
   margin-top: 12px;
   display: flex;
@@ -104,40 +117,40 @@ input{
   align-items: center;
 }
 
-#city-name{
+#city-name {
   font-size: 3rem;
 }
 
-.date-time{
+.date-time {
   display: flex;
   color: rgb(170, 159, 138);
-  margin-top: 12px ;
+  margin-top: 12px;
 }
 
-.weather-info{
+.weather-info {
   margin-top: 10px;
   width: 50%;
   max-width: 80%;
   height: 200px;
- display: flex;
- gap: 15px;
- 
- 
- 
+  display: flex;
+  gap: 15px;
+
+
+
 }
 
-.weather-type{
+.weather-type {
   height: 100%;
   width: 50%;
-   display: flex;
-   flex-direction: column;
-   gap: 4rem;
-   justify-content: center;
-   align-items: center;
-    
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  justify-content: center;
+  align-items: center;
+
 }
 
-.weather-temp{
+.weather-temp {
   height: 100%;
   width: 50%;
   margin-top: 10px;
@@ -146,30 +159,30 @@ input{
   gap: 4rem;
 }
 
-.temperature{
+.temperature {
   display: flex;
- gap: 20px;
+  gap: 20px;
 }
 
-#temp{
+#temp {
   font-size: 3rem;
 }
 
-#celcius{
+#celcius {
   color: blue;
 }
 
-#temp-info{
+#temp-info {
   text-align: center;
-   
+
 }
-.weather-data{
+
+.weather-data {
   color: rgb(170, 159, 138);
   width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap:10px
+  gap: 10px
 }
-
