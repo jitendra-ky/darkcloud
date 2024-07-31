@@ -1,0 +1,53 @@
+{
+    "count": 1,
+    "data": [
+        {
+            "app_temp": 31.2,
+            "aqi": 98,
+            "city_name": "Lucknow",
+            "clouds": 100,
+            "country_code": "IN",
+            "datetime": "2024-07-31:13",
+            "dewpt": 26,
+            "dhi": 0,
+            "dni": 0,
+            "elev_angle": -8.1,
+            "ghi": 0,
+            "gust": null,
+            "h_angle": 81,
+            "lat": 26.83928,
+            "lon": 80.92313,
+            "ob_time": "2024-07-31 13:33",
+            "pod": "n",
+            "precip": 0,
+            "pres": 985.2,
+            "rh": 94,
+            "slp": 999,
+            "snow": 0,
+            "solar_rad": 0,
+            "sources": [
+                "VILK",
+                "radar",
+                "satellite"
+            ],
+            "state_code": "36",
+            "station": "VILK",
+            "sunrise": "00:01",
+            "sunset": "13:24",
+            "temp": 27,
+            "timezone": "Asia/Kolkata",
+            "ts": 1722432819,
+            "uv": 0,
+            "vis": 16,
+            "weather": {
+                "icon": "a05n",
+                "description": "Fog",
+                "code": 741
+            },
+            "wind_cdir": "WSW",
+            "wind_cdir_full": "west-southwest",
+            "wind_dir": 250,
+            "wind_spd": 1.5
+        }
+    ]
+}

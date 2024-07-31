@@ -1,58 +1,105 @@
 import { IoSearchOutline } from "react-icons/io5";
 import { FaSearch } from "react-icons/fa";
+import { useState } from "react";
+import useWeather from './useWeather';
 
 const AppMain = () => {
+    const [city, setCity] = useState('Lucknow');
+    const { data, loading, error } = useWeather(city);
     return (
         <div className="main-div">
 
-            <SelectArea />
-            <ViewInfo />
+            <SelectArea city={city} setCity={setCity} />
+            <ViewInfo city={city} data={data} loading={loading} error={error} />
         </div>
     );
 };
 
-const SelectArea = () => {
+const SelectArea = (props) => {
+    const [cityInput, setCityInput] = useState(props.city);
+    const cityList = ["Lucknow", "Delhi", "Mumbai", "Mangow", "bear", "boom"];
+
+    const handleSearch = () => {
+        if (cityList.includes(cityInput)) {
+            props.setCity(cityInput);
+        } else {
+            alert("City not found \n please write the name of a valid Indian city");
+        }
+    }
+
     return (
         <div className="select-area">
-            <input type="text" placeholder="Enter city name" ></input>
-            <button className="search-button"><IoSearchOutline /></button>   {/*  putting react icon  */}
+            <input
+                list="city"
+                id="city-input"
+                name="city"
+                value={cityInput}
+                onChange={(e) => setCityInput(e.target.value)}
+            />
+
+            <datalist id="city">
+                {cityList.map((city, index) => (
+                    <option value={city} key={index} />
+                ))}
+            </datalist>
+
+            <button
+
+                className="search-button"
+                onClick={handleSearch}
+            ><IoSearchOutline /></button>
 
         </div>
     );
 }
 
-const ViewInfo = () => {
-    return (
-        <div className="view-info">
-            <p id="city-name">Lucknow</p>
+const ViewInfo = ({ city, data, loading, error }) => {
+    if (loading) {
+        return <p>Loading...</p>;
+    } else if (error) {
+        return <p>Error: {error.message} <br/> API limit reached : try again next day</p>;
+    } else if (!data || !data.data || data.data.length === 0) {
+        return <p>No data available</p>;
+    } else {
+        const weather = data.data[0]; // Extract the first (and only) item in the data array
+        const instdatetime = convertToIST(weather.ob_time);
+        return (
+            <div className="view-info">
+                <p id="city-name">{city}</p>
 
-            <div className="date-time">
-                <p>Sat , 6 May ,</p>
-                <span>  23:44 </span>
-            </div>
-
-            <div className="weather-info">
-                <div className="weather-type">
-                    <img src="" alt="weather-img" />
-                    <p>Snow</p>
+                <div className="date-time">
+                    <p>{instdatetime}</p> {/* You can format this as needed */}
                 </div>
-                <div className="weather-temp" >
-                    <div className="temperature">
-                        <p id="temp">8</p>
-                        <p id="celcius">C | F</p>
+
+                <div className="weather-info">
+                    <div className="weather-type">
+                        <img src={`https://www.weatherbit.io/static/img/icons/${weather.weather.icon}.png`} alt="weather-img" />
                     </div>
-                    <div id="temp-info"> 7 | 2</div>
+                    <div className="weather-temp">
+                        <div className="temperature">
+                            <p id="temp">{weather.temp}°C</p>
+                        </div>
+                    </div>
+                </div>
+                <p>{weather.weather.description}</p>
+
+                <div className="weather-data">
+                    <p>Wind Speed: <span>{weather.wind_spd} km/h</span></p> {/* Wind Speed */}
+                    <p>Humidity: <span>{weather.rh}%</span></p> {/* Humidity */}
+                    <p>Precipitation: <span>{weather.precip} mm</span></p> {/* Precipitation */}
                 </div>
             </div>
+        );
+    }
+};
 
-            <div className="weather-data">
-                <p>Wind : <span>10km/h</span></p>
-                <p>Humidity : <span>20%</span></p>
-                <p>Precipitation : <span>10%</span></p>
-            </div>
+const convertToIST = (utcDateString) => {
+    const date = new Date(utcDateString);
+    // IST is UTC + 5:30
+    const offset = 5 * 60 + 30; // 5 hours 30 minutes in minutes
+    const istDate = new Date(date.getTime() + offset * 60 * 1000);
+    return istDate.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+};
 
-        </div>
-    );
-}
 
 export default AppMain;
