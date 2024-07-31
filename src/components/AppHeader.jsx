@@ -1,15 +1,15 @@
-// this is the AppMain component
+ 
 
 import React from 'react';
 
-const AppMain = () => {
+const AppHeader = () => {
     // Your component logic here
 
     return (
         <div className='nav-bar'>
-            <p>this is AppMain component</p>
+            <h1>Dark-Cloud</h1>
         </div>
     );
 };
 
-export default AppMain;
+export default AppHeader;

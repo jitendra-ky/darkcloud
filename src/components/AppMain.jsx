@@ -1,9 +1,10 @@
-// this the AppHeader component
+import { IoSearchOutline } from "react-icons/io5";
+import { FaSearch } from "react-icons/fa";
 
-const AppHeader = () => {
+const AppMain = () => {
     return (
         <div className="main-div">
-            <p>This is the App-header</p>
+
             <SelectArea />
             <ViewInfo />
         </div>
@@ -13,7 +14,9 @@ const AppHeader = () => {
 const SelectArea = () => {
     return (
         <div className="select-area">
-            <p>This is the SelectArea component</p>
+            <input type="text" placeholder="Enter city name" ></input>
+            <button className="search-button"><IoSearchOutline /></button>   {/*  putting react icon  */}
+
         </div>
     );
 }
@@ -21,9 +24,35 @@ const SelectArea = () => {
 const ViewInfo = () => {
     return (
         <div className="view-info">
-            <p>This is the ViewInfo component</p>
+            <p id="city-name">Lucknow</p>
+
+            <div className="date-time">
+                <p>Sat , 6 May ,</p>
+                <span>  23:44 </span>
+            </div>
+
+            <div className="weather-info">
+                <div className="weather-type">
+                    <img src="" alt="weather-img" />
+                    <p>Snow</p>
+                </div>
+                <div className="weather-temp" >
+                    <div className="temperature">
+                        <p id="temp">8</p>
+                        <p id="celcius">C | F</p>
+                    </div>
+                    <div id="temp-info"> 7 | 2</div>
+                </div>
+            </div>
+
+            <div className="weather-data">
+                <p>Wind : <span>10km/h</span></p>
+                <p>Humidity : <span>20%</span></p>
+                <p>Precipitation : <span>10%</span></p>
+            </div>
+
         </div>
     );
 }
 
-export default AppHeader;
+export default AppMain;

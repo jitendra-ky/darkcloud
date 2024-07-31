@@ -6,10 +6,11 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
+        
         <AppHeader />
       </header>
       <main className='App-main'>
-        <AppMain />
+        <AppMain/>
       </main>
     </div>
   );
