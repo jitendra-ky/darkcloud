@@ -117,6 +117,13 @@ input {
   align-items: center;
 }
 
+.api-error {
+  background-color: rgb(237, 128, 128);
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+}
+
 #city-name {
   font-size: 3rem;
 }
@@ -153,10 +160,9 @@ input {
 .weather-temp {
   height: 100%;
   width: 50%;
-  margin-top: 10px;
   display: flex;
-  flex-direction: column;
-  gap: 4rem;
+  justify-content: center;
+  align-items: center;
 }
 
 .temperature {
