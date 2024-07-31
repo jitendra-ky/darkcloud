@@ -2,9 +2,11 @@ import { IoSearchOutline } from "react-icons/io5";
 import { FaSearch } from "react-icons/fa";
 import { useState } from "react";
 import useWeather from './useWeather';
+import citiesArray from './raw_cities';
+
 
 const AppMain = () => {
-    const [city, setCity] = useState('Lucknow');
+    const [city, setCity] = useState('lucknow');
     const { data, loading, error } = useWeather(city);
     return (
         <div className="main-div">
@@ -17,7 +19,7 @@ const AppMain = () => {
 
 const SelectArea = (props) => {
     const [cityInput, setCityInput] = useState(props.city);
-    const cityList = ["Lucknow", "Delhi", "Mumbai", "Mangow", "bear", "boom"];
+    const cityList = citiesArray;
 
     const handleSearch = () => {
         if (cityList.includes(cityInput)) {
@@ -34,7 +36,7 @@ const SelectArea = (props) => {
                 id="city-input"
                 name="city"
                 value={cityInput}
-                onChange={(e) => setCityInput(e.target.value)}
+                onChange={(e) => setCityInput(e.target.value.toLowerCase())}
             />
 
             <datalist id="city">
@@ -57,7 +59,7 @@ const ViewInfo = ({ city, data, loading, error }) => {
     if (loading) {
         return <p>Loading...</p>;
     } else if (error) {
-        return <p>Error: {error.message} <br/> API limit reached : try again next day</p>;
+        return <p>Error: {error.message} <br /> API limit reached : try again next day</p>;
     } else if (!data || !data.data || data.data.length === 0) {
         return <p>No data available</p>;
     } else {
@@ -100,6 +102,8 @@ const convertToIST = (utcDateString) => {
     const istDate = new Date(date.getTime() + offset * 60 * 1000);
     return istDate.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
 };
+
+
 
 
 export default AppMain;
