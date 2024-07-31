@@ -27,7 +27,7 @@ body {
 
 
 .App-header {
-  background-color: rgb(166, 204, 255);
+  
   height: 50px;
   display: flex;
   justify-content: center;
@@ -35,7 +35,7 @@ body {
 }
 
 .nav-bar {
-  background-color: rgb(132, 185, 255);
+ 
   height: 80%;
   width: 90%;
   display: flex;
@@ -43,13 +43,7 @@ body {
   align-items: center;
 }
 
-
-
-
-
-
-
-
+ 
 main {
   background-color: rgb(209, 226, 255);
   padding: 10px;
@@ -60,14 +54,115 @@ main {
 
 .main-div {
   height: 100%;
-  width: 100%;
+  width: 50%;
   display: flex;
   align-items: center;
   flex-direction: column;
+  background-color: #fcf9f9;
+  border-radius: 8px;
 }
 
+ 
+
 .select-area{
-  background-color: rgb(165, 206, 230);
+
+  width: 100%;
+  margin-top: 10px;
   padding: 10px;
-  max-width: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
 }
+
+input{
+  width: 80%;
+  padding: 8px;
+  border-radius: 5px;
+  border: 2px solid rgb(224, 222, 222);
+  position: relative;
+  outline: none;
+  
+}
+ .search-button{
+  
+  padding: 8px;
+  border-radius: 9px;
+  border: 2px solid rgb(224, 222, 222);
+  cursor: pointer;
+  position: absolute;
+  right: 26rem;
+   
+ }
+
+.view-info{
+  width: 100%;
+  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#city-name{
+  font-size: 3rem;
+}
+
+.date-time{
+  display: flex;
+  color: rgb(170, 159, 138);
+  margin-top: 12px ;
+}
+
+.weather-info{
+  margin-top: 10px;
+  width: 50%;
+  max-width: 80%;
+  height: 200px;
+ display: flex;
+ gap: 15px;
+ 
+ 
+ 
+}
+
+.weather-type{
+  height: 100%;
+  width: 50%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+.weather-temp{
+  height: 100%;
+  width: 50%;
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+.temperature{
+  display: flex;
+ gap: 16px;
+}
+
+#temp{
+  font-size: 3rem;
+}
+
+#temp-info{
+  text-align: center;
+   
+}
+.weather-data{
+  color: rgb(170, 159, 138);
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap:10px
+}
+
