@@ -1,5 +1,18 @@
 import { useState, useEffect } from 'react';
 
+// Array of API keys
+const API_KEYS = [
+    '1ef66fe567574e0aae8ff7daae9b7790',
+    '3968f172ff8242279e2511140acac2a5',
+    
+    // Add more keys as needed
+];
+
+const getRandomApiKey = () => {
+    const randomIndex = Math.floor(Math.random() * API_KEYS.length);
+    return API_KEYS[randomIndex];
+};
+
 const useWeather = (city) => {
     const [data, setData] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -15,7 +28,8 @@ const useWeather = (city) => {
         const fetchWeather = async () => {
             try {
                 setLoading(true);
-                const response = await fetch(`https://api.weatherbit.io/v2.0/current?city=${city}&country=IN,36&key=1ef66fe567574e0aae8ff7daae9b7790`);
+                const apiKey = getRandomApiKey();
+                const response = await fetch(`https://api.weatherbit.io/v2.0/current?city=${city}&country=IN,36&key=${apiKey}`);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
