@@ -10,7 +10,67 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Roboto', sans-serif;
-  background-color: #81c2f8;
+  /* background-color: #81c2f8; */
+}
+
+/* this is just a container which contain all backgroud style
+of div.glassbg */
+@media screen {
+  .glassbg {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+
+    min-height: 100vh;
+    width: 100%;
+
+    background: linear-gradient(to bottom, rgb(225, 250, 252), rgb(255, 180, 180));
+    z-index: -1;
+
+    display: flex;
+    justify-content: center;
+  }
+
+  @keyframes levitate {
+    0% {
+      transform: translateY(0);
+    }
+
+    100% {
+      transform: translateY(-100px);
+    }
+  }
+
+  .glassbg .color {
+    position: absolute;
+    filter: blur(150px);
+  }
+
+  .glassbg .color:nth-child(1) {
+    top: -350px;
+    height: 600px;
+    width: 600px;
+    background: #ff359b;
+    animation: levitate 2s 0.1s infinite alternate;
+  }
+
+  .glassbg .color:nth-child(2) {
+    bottom: -150px;
+    left: 100px;
+    height: 500px;
+    width: 500px;
+    background: #fffd87;
+    animation: levitate 2s 0.4s infinite alternate;
+  }
+
+  .glassbg .color:nth-child(3) {
+    bottom: 50px;
+    right: 100px;
+    height: 300px;
+    width: 300px;
+    background: #00d2ff;
+    animation: levitate 2s 0.7s infinite alternate;
+  }
 }
 
 #root {
@@ -28,10 +88,13 @@ body {
 
 .App-header {
 
-  height: 50px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: rgba(255, 255, 255, 0.269);
+  backdrop-filter: blur(100px);
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
 }
 
 .nav-bar {
@@ -39,13 +102,18 @@ body {
   height: 80%;
   width: 90%;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-bar>div {
+  display: flex;
+  gap: 10px;
   align-items: center;
 }
 
 
 main {
-  background-color: rgb(209, 226, 255);
+  /* background-color: rgb(209, 226, 255); */
   padding: 10px;
   flex-grow: 1;
 }
@@ -56,9 +124,14 @@ main {
   display: flex;
   align-items: center;
   flex-direction: column;
-  background-color: #fcf9f9;
+  background-color: rgba(255, 255, 255, 0.349);
   border-radius: 8px;
   margin: auto;
+  border-top: thin solid rgb(255, 255, 255);
+  border-left: thin solid rgb(255, 255, 255);
+  border-right: thin solid rgb(163, 163, 163);
+  border-bottom: thin solid rgb(130, 130, 130);
+  box-shadow: -10px 10px 10px rgba(0, 0, 0, 0.1);
 }
 
 
@@ -86,6 +159,7 @@ input {
   outline: none;
   flex-grow: 1;
   font-size: large;
+  background-color: rgba(255, 255, 255, 0.596);
 
 }
 
@@ -97,9 +171,10 @@ input {
   /* background-color: #81c2f8; */
   border: none;
   cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.326);
 }
 .search-button:hover {
-  background-color: #757070;
+  background-color: rgba(255, 255, 255, 0.16);
 }
 
 .search-button>svg {

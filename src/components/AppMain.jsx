@@ -30,7 +30,6 @@ const SelectArea = ({ city, setCity }) => {
 
     return (
         <div className="select-area">
-            <label htmlFor="city-input">Select City:</label>
             <input
                 list="city"
                 id="city-input"
