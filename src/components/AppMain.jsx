@@ -75,6 +75,7 @@ const ViewInfo = ({ city, data, loading, error }) => {
                 <p>Humidity: <span>{weather.rh}%</span></p>
                 <p>Precipitation: <span>{weather.precip} mm</span></p>
             </div>
+            <AdditionInfo weather={weather} />
         </div>
     );
 
@@ -154,5 +155,114 @@ const convertToIST = (utcDateString) => {
     const istDate = new Date(date.getTime() + offset * 60 * 1000);
     return istDate.toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
 };
+
+const convertToIST2 = (utcTimeString) => {
+    // UTC time is provided as a string in HH:mm format
+    const [hours, minutes] = utcTimeString.split(':').map(Number);
+
+    // Create a new Date object with the UTC time
+    const utcDate = new Date(Date.UTC(1970, 0, 1, hours, minutes));
+
+    // Convert UTC time to IST (UTC + 5:30)
+    const istOffset = 5 * 60 + 30; // IST offset in minutes
+    const istDate = new Date(utcDate.getTime() + istOffset * 60 * 1000);
+
+    // Format the IST date as HH:mm
+    const istHours = String(istDate.getUTCHours()).padStart(2, '0');
+    const istMinutes = String(istDate.getUTCMinutes()).padStart(2, '0');
+
+    return `${istHours}:${istMinutes}`;
+};
+
+
+const AdditionInfo = ({ weather }) => {
+    const sunriseIST = convertToIST2(weather.sunrise);
+    const sunsetIST = convertToIST2(weather.sunset);
+
+    return (
+        <div className="additional-info">
+            <h3>Additional Information</h3>
+            <table>
+                <tbody>
+                    <tr>
+                        <td><strong>City:</strong></td>
+                        <td>{weather.city_name}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Country:</strong></td>
+                        <td>{weather.country_code}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Temperature:</strong></td>
+                        <td>{weather.temp}°C (Feels like {weather.app_temp}°C)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Weather Description:</strong></td>
+                        <td>{weather.weather.description}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Air Quality Index (AQI):</strong></td>
+                        <td>{weather.aqi} (Moderate)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Humidity:</strong></td>
+                        <td>{weather.rh}%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pressure:</strong></td>
+                        <td>{weather.pres} hPa (Surface Level), {weather.slp} hPa (Sea Level)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Wind Speed:</strong></td>
+                        <td>{weather.wind_spd} m/s</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Wind Direction:</strong></td>
+                        <td>{weather.wind_cdir_full} ({weather.wind_dir}°)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Visibility:</strong></td>
+                        <td>{weather.vis} km</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Cloud Cover:</strong></td>
+                        <td>{weather.clouds}%</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Precipitation:</strong></td>
+                        <td>{weather.precip} mm</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Solar Radiation:</strong></td>
+                        <td>{weather.solar_rad} W/m²</td>
+                    </tr>
+                    <tr>
+                        <td><strong>UV Index:</strong></td>
+                        <td>{weather.uv}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Date and Time:</strong></td>
+                        <td>{weather.ob_time}</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sunrise:</strong></td>
+                        <td>{sunriseIST} (IST)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Sunset:</strong></td>
+                        <td>{sunsetIST} (IST)</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Timezone:</strong></td>
+                        <td>{weather.timezone}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    );
+};
+
+
+
 
 export default AppMain;

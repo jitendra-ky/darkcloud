@@ -105,6 +105,7 @@ of div.glassbg */
   justify-content: space-between;
   align-items: center;
 }
+
 .nav-bar>div {
   display: flex;
   gap: 10px;
@@ -112,10 +113,11 @@ of div.glassbg */
 }
 
 @media screen and (max-width: 700px) {
-  .nav-bar{
+  .nav-bar {
     flex-direction: column;
     font-size: 15px;
   }
+
   .App-header {
     /* height: 100px; */
     padding: 5px;
@@ -142,6 +144,7 @@ main {
   border-right: thin solid rgb(163, 163, 163);
   border-bottom: thin solid rgb(130, 130, 130);
   box-shadow: -10px 10px 10px rgba(0, 0, 0, 0.1);
+  padding-bottom: 20px;
 }
 
 
@@ -183,6 +186,7 @@ input {
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.326);
 }
+
 .search-button:hover {
   background-color: rgba(255, 255, 255, 0.16);
 }
@@ -276,4 +280,55 @@ input {
   justify-content: center;
   align-items: center;
   gap: 10px
+}
+
+
+/* addition info styles */
+
+@media screen {
+  .additional-info {
+    padding: 20px;
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    /* background-color: #f9f9f9; */
+  }
+
+  .additional-info h3 {
+    margin-bottom: 15px;
+    font-size: 1.5em;
+    color: #333;
+  }
+
+  .additional-info table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .additional-info table,
+  .additional-info th,
+  .additional-info td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+
+  .additional-info th,
+  .additional-info td {
+    text-align: left;
+  }
+
+  .additional-info tr:nth-child(even) {
+    background-color: (255, 255, 255, 0.5);
+  }
+
+  .additional-info tr:hover {
+    background-color: #ddd;
+  }
+
+  .additional-info th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    background-color: #4CAF50;
+    color: white;
+  }
 }
